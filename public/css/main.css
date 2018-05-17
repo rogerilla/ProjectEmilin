@@ -1,0 +1,24 @@
+.costats_web {
+    background-color: #66afe9;
+}
+
+footer{
+    text-align: center;
+    background: #9fcdff;
+}
+footer p {
+    text-align: justify;
+}
+ul.xarxes li {
+    display: inline-block;
+}
+ul.xarxes li a {
+    color: blueviolet;
+}
+.avatar{
+    border: 5px solid blueviolet;
+    border-radius: 50%;
+    float: left;
+    height: 100px;
+    width: 100px;
+}
