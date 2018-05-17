@@ -2,6 +2,10 @@
 
 namespace Tests;
 
+<<<<<<< HEAD
+use Illuminate\Support\Facades\Hash;
+=======
+>>>>>>> 0ddec4fba99bfa51b064081e64d73b540546e052
 use Illuminate\Contracts\Console\Kernel;
 
 trait CreatesApplication
@@ -17,6 +21,11 @@ trait CreatesApplication
 
         $app->make(Kernel::class)->bootstrap();
 
+<<<<<<< HEAD
+        Hash::driver('bcrypt')->setRounds(4);
+
+=======
+>>>>>>> 0ddec4fba99bfa51b064081e64d73b540546e052
         return $app;
     }
 }
