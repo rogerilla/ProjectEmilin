@@ -12,3 +12,6 @@
 */
 
 Route::get('/', 'NoticiesController@index');
+Route::get('/histories', [
+    'as' => 'histories-veure',
+    'uses' => 'HistoriesController@index']);

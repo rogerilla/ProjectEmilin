@@ -1,4 +1,4 @@
 @extends ('web.template')
 @section ('content')
-    @foreach
+<h1>hola</h1>
 @stop
