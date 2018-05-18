@@ -1,5 +1,5 @@
 <footer>
-    <div class="row">
+    <div class="d-flex">
         <div class="col-md-8">
             <p class="text-center"><a href="">Termes del servei</a> | <a href="">Normes</a> | <a href="">Politica de privacitat</a> | <a href="">Qui som?</a></p>
             <p class="text-center">©ProjectEmilin Totes les històries pertanyen als seus respectius autors, així com la sèrie, pel·lícula, manga o còmic al qual estiguin ambientades.</p>

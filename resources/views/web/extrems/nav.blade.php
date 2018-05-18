@@ -9,7 +9,10 @@
   <div class="collapse navbar-collapse" id="navbarColor03">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="{{route('histories-veure')}}">Noticies<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{route('noticies')}}">Noticies<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('fanfictions')}}">Totes les histories</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Categories</a>

@@ -20,10 +20,9 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('edat')->unsigned();
             $table->integer('nComentaris')->unsigned();
-            $table->string('categora');
+            $table->string('categoria');
             $table->rememberToken();
             $table->timestamps();
-            $table->date('last_login');
         });
     }
 

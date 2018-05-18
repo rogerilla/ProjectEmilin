@@ -11,7 +11,14 @@
 |
 */
 
-Route::get('/', 'NoticiesController@index');
-Route::get('/histories', [
-    'as' => 'histories-veure',
+Route::get('/', [
+    'as' => 'noticies',
+    'uses' => 'NoticiesController@index']); 
+        
+Route::get('/fanfictions', [
+    'as' => 'fanfictions',
     'uses' => 'HistoriesController@index']);
+
+Route::get('/fanfictions/{titol}', [
+    'as' => 'fanfic-escollit',
+    'uses' => 'HistoriesController@veure_fanfic']);

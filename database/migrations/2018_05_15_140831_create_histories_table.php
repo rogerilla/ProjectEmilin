@@ -17,9 +17,10 @@ class CreateHistoriesTable extends Migration
             $table->increments('id');
             $table->string('usuari',100);
             $table->foreign('usuari',100)->references('name')->on('users')->onDelete('cascade');
-            $table->string('titol',100);
+            $table->string('titol',100)->unique();
             $table->integer('id_categoria')->unsigned();
             $table->foreign('id_categoria')->references('id')->on('categories');
+            $table->text('resum');
             $table->text('contingut');
             $table->timestamps();
             $table->boolean('finalitzacio');
