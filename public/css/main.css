@@ -1,10 +1,19 @@
 .costats_web {
     background-color: #f8f8d8;
 }
-
+#colorNav{
+    background: #D4C5C5;
+}
+#contanidor_fanfic{
+    min-height: 70vh;
+}
 footer{
     text-align: center;
-    background: #9fcdff;
+    background: #D4C5C5;
+}
+
+html {
+    font-family: arial;
 }
 footer p {
     text-align: justify;

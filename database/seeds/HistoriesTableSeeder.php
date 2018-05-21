@@ -35,6 +35,17 @@ class HistoriesTableSeeder extends Seeder
 //                'finalitzacio'=> true,
 //                'nVots'=>-10
 //            ]
+            [
+                'usuari'=>'Frila',
+                'titol'=> 'La pesca de la truita4',
+                'id_categoria'=> 3,
+                'resum'=>'Aquesta és una historia sobre un pescador, aconseguira pescar la truita?',
+                'contingut'=> 'Hi habia una vegada un noi que pescava una truita, aquesta truita es pescava molt be'
+                . 'i un dia una truita magica li va dir que li donava un carmel'
+                . 'ell va acceptar, i es van fer amics. Fin',
+                'finalitzacio'=> true,
+                'nVots'=>-17
+            ]
             
         );
         Histories::insert($data);

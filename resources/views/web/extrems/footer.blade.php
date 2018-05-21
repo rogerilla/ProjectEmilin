@@ -1,10 +1,10 @@
 <footer>
-    <div class="d-flex">
-        <div class="col-md-8">
+    <div class="d-flex flex-wrap">
+        <div class="col-lg-8 col-12">
             <p class="text-center"><a href="">Termes del servei</a> | <a href="">Normes</a> | <a href="">Politica de privacitat</a> | <a href="">Qui som?</a></p>
             <p class="text-center">©ProjectEmilin Totes les històries pertanyen als seus respectius autors, així com la sèrie, pel·lícula, manga o còmic al qual estiguin ambientades.</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-lg-4 col-12 ">
             <h3>Segueix-nos</h3>
             <ul class="xarxes">
                 <li>

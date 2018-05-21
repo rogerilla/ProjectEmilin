@@ -22,3 +22,7 @@ Route::get('/fanfictions', [
 Route::get('/fanfictions/{titol}', [
     'as' => 'fanfic-escollit',
     'uses' => 'HistoriesController@veure_fanfic']);
+
+Route::get('/ultims', [
+    'as' => 'fanfic-ultims',
+    'uses' => 'HistoriesController@ultims']);

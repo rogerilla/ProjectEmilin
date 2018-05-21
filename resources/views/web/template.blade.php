@@ -7,6 +7,7 @@ and open the template in the editor.
 <html lang='es'>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>@yield('title', 'ProjectEmilin')</title>
         <!-- Jquery-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -25,8 +26,10 @@ and open the template in the editor.
         
     </head>
     <body>
+        <div class="costats_web">
         @include ('web.extrems.nav')
         @yield ('content')
         @include ('web.extrems.footer')
+        </div>
     </body>
 </html>

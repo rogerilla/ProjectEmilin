@@ -21,8 +21,9 @@ class HistoriesController extends Controller {
         foreach ($histories as $historia) {
             //En cas de volguer més de una categoria buscar mes de 1 id que fagi
             $historia['nom_categoria'] = $this->categories[$historia->id_categoria];
-        };
+        }
         //dd($histories);
+        
         return view('web.historia', compact('histories'));
     }
 
@@ -32,5 +33,18 @@ class HistoriesController extends Controller {
         $historia['nom_categoria'] = $this->categories[$historia->id_categoria];
         return view('web.mostrar_fanfic', compact('historia'));
     }
+    public function ultims(){
+        $histories = Histories::latest()
+                ->get();
+        foreach ($histories as $historia) {
+            //En cas de volguer més de una categoria buscar mes de 1 id que fagi
+            $historia['nom_categoria'] = $this->categories[$historia->id_categoria];
+        }
+        //dd($histories);
+        
+        return view('web.historia', compact('histories'));
+    }
+    
+    
 
 }
