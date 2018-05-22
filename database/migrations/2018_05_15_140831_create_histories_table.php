@@ -24,7 +24,7 @@ class CreateHistoriesTable extends Migration
             $table->text('contingut');
             $table->timestamps();
             $table->boolean('finalitzacio');
-            $table->integer('nVots');
+            $table->integer('nVots')->default(0);
         });
     }
 

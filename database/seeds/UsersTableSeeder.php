@@ -16,18 +16,10 @@ class UsersTableSeeder extends Seeder
            [
                'name' => 'Frila',
                 'email'=> 'Frila@gmail.com',
-                'password'=> '1234%&/(',
+                'password'=> 'b8fe8fca65138e2f45c43d30e2b85aa2',
                 'edat' => 23,
                 'nComentaris' => 0,
                 'categoria' => 'administrador',        
-            ],
-            [
-                'name' => 'Joanet',
-                'email'=> 'Joanet@gmail.com',
-                'password'=> '1234%&/(',
-                'edat' => 20,
-                'nComentaris' => 0,
-                'categoria' => 'usuari',        
             ]
             
         );

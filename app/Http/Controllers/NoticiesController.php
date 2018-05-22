@@ -10,16 +10,17 @@ class NoticiesController extends Controller {
 
     public function index() {
         
-        $noticies = Noticies::latest()
+        $noticies = Noticies::orderBy('id', 'DESC')
                 ->limit(3)
                 ->get();
         //dd($noticies);
         $historia_rand = Histories::inRandomOrder()
                 ->first();
-        $last_histories = Histories::latest()
+        
+        $last_histories = Histories::orderBy('id', 'DESC')
                 ->limit(3)
                 ->get();
-        return view('web.index', compact('noticies'), compact('historia_rand'), compact('last_histories'));
+        return view('web.index', compact('noticies'), compact('historia_rand', 'last_histories'));
     }
 
 }

@@ -17,7 +17,8 @@ class CreateNoticiesTable extends Migration
             $table->increments('id');
             $table->string('titol');
             $table->text('noticia');
-           // $table->date('data_Creacio');
+            $table->string('usuari',100);
+            $table->foreign('usuari',100)->references('name')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

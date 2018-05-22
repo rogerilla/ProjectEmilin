@@ -26,3 +26,13 @@ Route::get('/fanfictions/{titol}', [
 Route::get('/ultims', [
     'as' => 'fanfic-ultims',
     'uses' => 'HistoriesController@ultims']);
+Auth::routes();
+
+//Route::get('/logout', 'Auth\LoginController@logout');
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/logout', [
+    'as' => 'logout',
+    'uses'=>'Auth\LoginController@logout']);
