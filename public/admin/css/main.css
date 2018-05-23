@@ -1,0 +1,14 @@
+
+#colorNav{
+    background: grey;
+}
+html {
+    font-family: arial;
+}
+ul.xarxes li {
+    display: inline-block;
+}
+ul.xarxes li a {
+    color: blueviolet;
+}
+

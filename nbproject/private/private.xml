@@ -1,31 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-<<<<<<< HEAD
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/ProjectEmilin/public/css/app.css</file>
-            <file>file:/C:/xampp/htdocs/ProjectEmilin/public/css/main.css</file>
-            <file>file:/C:/xampp/htdocs/ProjectEmilin/database/seeds/ComentarisTableSeeder.php</file>
-            <file>file:/C:/xampp/htdocs/ProjectEmilin/resources/views/web/index.blade.php</file>
+            <file>file:/C:/xampp/htdocs/ProjectEmilin/resources/views/web/backend/admin/crearCategoria.blade.php</file>
+            <file>file:/C:/xampp/htdocs/ProjectEmilin/resources/views/web/backend/admin/extrems/footeradmin.blade.php</file>
+            <file>file:/C:/xampp/htdocs/ProjectEmilin/resources/views/web/backend/admin/templateadmin.blade.php</file>
+            <file>file:/C:/xampp/htdocs/ProjectEmilin/resources/views/web/extrems/nav.blade.php</file>
+            <file>file:/C:/xampp/htdocs/ProjectEmilin/resources/lang/en/validation.php</file>
+            <file>file:/C:/xampp/htdocs/ProjectEmilin/resources/views/auth/login.blade.php</file>
             <file>file:/C:/xampp/htdocs/ProjectEmilin/app/Category.php</file>
-            <file>file:/C:/xampp/htdocs/ProjectEmilin/database/migrations/2018_05_15_152924_create_votacions_table.php</file>
-            <file>file:/C:/xampp/htdocs/ProjectEmilin/database/seeds/DatabaseSeeder.php</file>
-            <file>file:/C:/xampp/htdocs/ProjectEmilin/database/seeds/NoticiesTableSeeder.php</file>
-            <file>file:/C:/xampp/htdocs/ProjectEmilin/resources/views/web/extrems/footer.blade.php</file>
-            <file>file:/C:/xampp/htdocs/ProjectEmilin/database/migrations/2018_05_16_190036_create_noticies_table.php</file>
-            <file>file:/C:/xampp/htdocs/ProjectEmilin/database/seeds/CategoryTableSeeder.php</file>
-            <file>file:/C:/xampp/htdocs/ProjectEmilin/app/Noticies.php</file>
-            <file>file:/C:/xampp/htdocs/ProjectEmilin/app/Http/Controllers/NoticiesController.php</file>
-=======
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/xampp/htdocs/ProjectEmilin/.env</file>
-            <file>file:/C:/xampp/htdocs/ProjectEmilin/public/index.php</file>
-            <file>file:/C:/xampp/htdocs/ProjectEmilin/config/database.php</file>
-            <file>file:/C:/xampp/htdocs/ProjectEmilin/database/migrations/2014_10_12_000000_create_users_table.php</file>
-            <file>file:/C:/xampp/htdocs/ProjectEmilin/database/migrations/2014_10_12_100000_create_password_resets_table.php</file>
->>>>>>> 12fb082e621d74836405586f624ceda868c19d55
+            <file>file:/C:/xampp/htdocs/ProjectEmilin/resources/views/web/backend/admin/index.blade.php</file>
+            <file>file:/C:/xampp/htdocs/ProjectEmilin/routes/web.php</file>
+            <file>file:/C:/xampp/htdocs/ProjectEmilin/app/Http/Controllers/backend/CategoryController.php</file>
+            <file>file:/C:/xampp/htdocs/ProjectEmilin/resources/views/web/backend/admin/extrems/navadmin.blade.php</file>
+            <file>file:/C:/xampp/htdocs/ProjectEmilin/app/User.php</file>
         </group>
     </open-files>
 </project-private>

@@ -11,7 +11,7 @@ class NoticiesController extends Controller {
     public function index() {
         
         $noticies = Noticies::orderBy('id', 'DESC')
-                ->limit(3)
+                ->limit(2)
                 ->get();
         //dd($noticies);
         $historia_rand = Histories::inRandomOrder()

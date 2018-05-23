@@ -31,3 +31,7 @@ ul.xarxes li a {
     height: 100px;
     width: 100px;
 }
+
+#noticiesFont {
+    font-family: Lucida;
+}
