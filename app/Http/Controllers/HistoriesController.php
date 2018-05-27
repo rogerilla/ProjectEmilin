@@ -43,7 +43,16 @@ class HistoriesController extends Controller {
         
         return view('web.historia', compact('histories'));
     }
-    
-    
+    public function nous(){
+        $histories = histories::orderBy('id', 'ASC')->get();
+        foreach ($histories as $historia) {
+            //En cas de volguer més de una categoria buscar mes de 1 id que fagi
+            $historia['nom_categoria'] = $this->categories[$historia->id_categoria];
+        }
+        //dd($histories);
+        
+        return view('web.historia', compact('histories'));
+    }
+
 
 }

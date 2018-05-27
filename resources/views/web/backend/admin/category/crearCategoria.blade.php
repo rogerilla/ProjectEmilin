@@ -2,11 +2,12 @@
 @section ('content')
 <div class='container text-center'>
     <div class="page-header">
+        {!! Form::open(['route'=>'category.create']) !!}
         <h1>
             CATEGORIES <small>Afegir Categoria</small>
         </h1>
-        <div class="row">
-            <div class="col-md-offset-3 col-md-6">
+
+            <div class="">
                 <div class="page">
                     @if (count($errors) > 0)
                     @include('admin.partials.errors')
@@ -20,7 +21,7 @@
                     null, 
                     array(
                     'class'=>'form-control',
-                    'placeholder' => 'Introdueix un nom...',
+                    'placeholder' => 'Introdueix un nom de la categoria que vulguis',
                     'autofocus' => 'autofocus'
                     )
                     ) 
@@ -34,4 +35,5 @@
             </div>
         </div>
     </div>
-    <!--{!! Form::open(['route'=>'categories.projectemilin']) !!};-->
+   
+@stop

@@ -22,5 +22,4 @@ class NoticiesController extends Controller {
                 ->get();
         return view('web.index', compact('noticies'), compact('historia_rand', 'last_histories'));
     }
-
 }

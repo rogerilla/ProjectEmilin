@@ -11,8 +11,7 @@ and open the template in the editor.
         <title>@yield('title', 'ProjectEmilin')</title>
         <!-- Jquery-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <!--Css-->
-        <link rel="stylesheet" href="{{asset("css/main.css")}}">
+        
         <!--Bootstrap-->
         
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
@@ -23,13 +22,15 @@ and open the template in the editor.
         
         <!-- Faig servir litera-->
         <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/litera/bootstrap.min.css" rel="stylesheet" integrity="sha384-+YpxMU1QQywaQtI3dMQAwIcu0vVDuOREjQPC59qblQHg9nTdcrUXMPnanUaldUnY" crossorigin="anonymous">
-        
+        <!--Css-->
+        <link rel="stylesheet" href="{{asset("css/main.css")}}">
     </head>
     <body>
         <div class="costats_web">
         @include ('web.extrems.nav')
         @yield ('content')
-        @include ('web.extrems.footer')
         </div>
+        @include ('web.extrems.footer')
+        
     </body>
 </html>

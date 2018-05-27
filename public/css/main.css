@@ -12,7 +12,7 @@ footer{
     background: #D4C5C5;
 }
 
-html {
+html, p,h1,h2,h3,h4 {
     font-family: arial;
 }
 footer p {
@@ -34,4 +34,17 @@ ul.xarxes li a {
 
 #noticiesFont {
     font-family: Lucida;
+}
+
+/*Comentaris*/
+
+#comentaris{
+    margin-top: 10%;
+    
+}
+
+#txtArea {
+    width: 90%;
+    height: 300px;
+    resize: none;
 }

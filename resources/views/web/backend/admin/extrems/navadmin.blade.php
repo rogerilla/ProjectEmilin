@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-expand-lg navbar-light" id="colorNav">
     <img src="{{ asset('images/zergicon.png') }}" width="50px" height="50px">
 
