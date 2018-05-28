@@ -15,8 +15,8 @@ class CreateHistoriesTable extends Migration
     {
         Schema::create('histories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('usuari',100);
-            $table->foreign('usuari',100)->references('name')->on('users')->onDelete('cascade');
+            $table->integer('usuari')->unsigned();
+            $table->foreign('usuari')->references('id')->on('users')->onDelete('cascade');
             $table->string('titol',100)->unique();
             $table->integer('id_categoria')->unsigned();
             $table->foreign('id_categoria')->references('id')->on('categories');

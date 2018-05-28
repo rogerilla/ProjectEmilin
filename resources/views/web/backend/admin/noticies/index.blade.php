@@ -66,7 +66,7 @@
 
                         <td>{{$noticia->titol}}</td>
                         <td>{{$noticia->noticia}}</td>
-                        <td>{{$noticia->usuari}}</td>
+                        <td>{{$noticia->id_user}}</td>
                         
                         <td><button type="button" class="btn btn-warning"><i class ='fa fa-pencil-square'></i></button></td>
                         <td><button type="button" class="btn btn-danger">X</button></td>

@@ -29,7 +29,8 @@ class HistoriesController extends Controller {
 
     public function veure_fanfic($titol) {
 
-        $historia = Histories::where('titol', $titol)->first();
+        $historia = Histories::where('titol', $titol)
+                ->first();
         $historia['nom_categoria'] = $this->categories[$historia->id_categoria];
         return view('web.mostrar_fanfic', compact('historia'));
     }

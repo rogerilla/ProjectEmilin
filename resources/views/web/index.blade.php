@@ -54,7 +54,7 @@
                 {{$noticia->titol}}
             </h4>
             <p>{{$noticia->noticia}}</p>
-            <div class="text-right">{{$noticia->usuari}}</div>
+            <div class="text-right">{{$noticia->autor}}</div>
             @endforeach
         </div>
 

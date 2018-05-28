@@ -14,7 +14,7 @@ class HistoriesTableSeeder extends Seeder
     {
         $data = array(
             [
-                'usuari'=>'Tibiachar100',
+                'usuari'=>2,
                 'titol'=> 'La pesca de la truita',
                 'id_categoria'=> 2,
                 'resum'=>'2Aquesta és una historia sobre un pescador, aconseguira pescar la truita?',
@@ -24,7 +24,7 @@ class HistoriesTableSeeder extends Seeder
                 'finalitzacio'=> true
             ],
             [
-                'usuari'=>'Joan',
+                'usuari'=>3,
                 'titol'=> 'La pesca de la truita2',
                 'id_categoria'=> 3,
                 'resum'=>'3Aquesta és una historia sobre un pescador, aconseguira pescar la truita?',
@@ -34,7 +34,7 @@ class HistoriesTableSeeder extends Seeder
                 'finalitzacio'=> true
             ],
             [
-                'usuari'=>'Joan',
+                'usuari'=>3,
                 'titol'=> 'La pesca de la truita3',
                 'id_categoria'=> 3,
                 'resum'=>'4Aquesta és una historia sobre un pescador, aconseguira pescar la truita?',
@@ -44,7 +44,7 @@ class HistoriesTableSeeder extends Seeder
                 'finalitzacio'=> true
             ],
             [
-                'usuari'=>'Tibiachar100',
+                'usuari'=>2,
                 'titol'=> 'La pesca de la truita4',
                 'id_categoria'=> 3,
                 'resum'=>'5Aquesta és una historia sobre un pescador, aconseguira pescar la truita?',

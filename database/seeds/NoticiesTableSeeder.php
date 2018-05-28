@@ -16,25 +16,25 @@ class NoticiesTableSeeder extends Seeder {
                 'titol'=> 'Benvinguts a la meva pàgina de fanfictions',
                 'noticia'=> 'Aquesta pàgina sera feta per la gent a qui els hi agradi tant escriure com llegir fanfics '
                 . "Tothom es benvingut, pero siusplau respecteu les normes d'us",
-                'usuari'=>'Frila'
+                'id_user'=>1
             ],
             [
                 'titol'=> 'Benvinguts a la meva pàgina de fanfictions2',
                 'noticia'=> 'Aquesta pàgina sera feta per la gent a qui els hi agradi tant escriure com llegir fanfics '
                 . "Tothom es benvingut, pero siusplau respecteu les normes d'us",
-                'usuari'=>'Frila'
+                'id_user'=>1
             ],
             [
                 'titol'=> 'Benvinguts a la meva pàgina de fanfictions3',
                 'noticia'=> 'Aquesta pàgina sera feta per la gent a qui els hi agradi tant escriure com llegir fanfics '
                 . "Tothom es benvingut, pero siusplau respecteu les normes d'us",
-                'usuari'=>'Frila'
+                'id_user'=>1
             ],
             [
                 'titol'=> 'Benvinguts a la meva pàgina de fanfictions4Ultim',
                 'noticia'=> 'Aquesta pàgina sera feta per la gent a qui els hi agradi tant escriure com llegir fanfics '
                 . "Tothom es benvingut, pero siusplau respecteu les normes d'us",
-                'usuari'=>'Frila'
+                'id_user'=>1
             ]
         );
         Noticies::insert($data);

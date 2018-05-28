@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('edat')->unsigned();
             $table->integer('nComentaris')->default(0);
-            $table->string('categoria')->default('usuari');
+            $table->boolean('admin')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
