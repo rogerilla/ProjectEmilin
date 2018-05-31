@@ -2,7 +2,7 @@
 @section ('content')
 <div class='container text-center'>
     <div class="page-header">
-        {!! Form::open(['route'=>'category.create']) !!}
+        {!! Form::open(['route'=>'category.store']) !!}
         <h1>
             CATEGORIES <small>Afegir Categoria</small>
         </h1>
@@ -10,14 +10,14 @@
             <div class="">
                 <div class="page">
                     @if (count($errors) > 0)
-                    @include('admin.partials.errors')
+                    @include('web.backend.admin.errors')
                     @endif
                 </div>
                 <div class="form-group">
                     <label for="name">Nom:</label>
                     {!! 
                     Form::text(
-                    'name', 
+                    'nom', 
                     null, 
                     array(
                     'class'=>'form-control',
@@ -36,4 +36,4 @@
         </div>
     </div>
    
-@stop
+@endsection

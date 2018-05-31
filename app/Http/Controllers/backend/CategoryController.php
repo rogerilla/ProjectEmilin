@@ -36,7 +36,16 @@ class CategoryController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        return $request->all();
+        $validacio = $this->validate($request, [
+            'nom' => 'required|unique:categories|max:25',
+        ]);
+        if ($validacio) {
+            $category = Category::create([
+                        'nom' => $request->get('nom'),
+            ]);
+        }
+        $message = $category ? 'Categoria creada correctament!' : 'La Categoria NO s`ha pogut afegir!';
+        return redirect()->route('category.index')->with('message', $message);
     }
 
     /**
@@ -55,8 +64,8 @@ class CategoryController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) {
-        
+    public function edit(Category $category) {
+        return view('web.backend.admin.category.editarCategoria', compact('category'));
     }
 
     /**
@@ -76,8 +85,11 @@ class CategoryController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) {
-        //
+    public function destroy($category) {
+        
+        $deleted = $category->delete();
+        $message = $deleted ? 'Categoria eliminada correctament!' : 'La Categoria NO s´ha pogut eliminar!';
+        return redirect()->route('category.index')->with('message', $message);
     }
 
 }

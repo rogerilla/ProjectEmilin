@@ -1,43 +1,36 @@
-@extends ('web.backend.admin.templateadmin')
+@extends ('web.template')
 @section ('content')
+<div class="footerabaix"
 <!--Menu del costat-->
-    <div id="wrapper">
+<div id="wrapper">
 
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Menu d'admin
-                    </a>
-                </li>
-                <li>
-                    <a href="">Usuaris</a>
-                </li>
-                <li>
-                    <a href="{{route('fanfics.index')}} "class='bg-secondary'>Histories</a>
-                </li>
-                <li>
-                    <a href="{{route('category.index')}}" >Categories</a>
-                </li>
-                <li>
-                    <a href="{{route('noticies.index')}}">Noticies</a>
-                </li>
-                <li>
-                    <a href="{{route('noticies')}}">Tornar al ProjectEmilin</a>
-                </li>
-            </ul>
-        </div>
-        <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Panell de control</a>
-        <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
+                    Menu d'admin
+                </a>
+            </li>
+            <li>
+                <a href="{{route('category.index')}}"class='bg-secondary'>Usuaris</a>
+            </li>
+            <li>
+                <a href="{{route('fanfiction.index', Auth::user()->name)}}">Fanfictions</a>
+            </li>
+            <li>
+                <a href="{{route('fanfiction.create', Auth::user()->name)}}">Creador de Fanfictions</a>
+            </li>
+        </ul>
+    </div>
+    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Panell de control</a>
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
     </script>
-        <!-- /#sidebar-wrapper -->
-        
-<!--Cateogries-->
+</div>
 <div class='col-lg-8 container text-center'>
     <div class="page-header ">
         <h1>
@@ -56,6 +49,7 @@
                             <th>Titol</th>
                             <th>Id categoria</th>
                             <th>Resum</th>
+                            <th>Editar</th>
                             <th>Eliminar</th>
                         </tr>
                     </thead>
@@ -68,7 +62,7 @@
                         <td>{{$historia->titol}}</td>
                         <td>{{$historia->nom_categoria}}</td>
                         <td>{{$historia->resum}}</td>
-                        
+                        <td>Editar</td>
                         
                         <td>{!! Form::open(['route' => ['fanfics.destroy', $historia->id]]) !!}
                         <input type="hidden" name="_method" value="DELETE">
@@ -78,12 +72,10 @@
                         {!! Form::close() !!}</td>
                     </tr>
                     @endforeach
+                </table>
             </div>
         </div>
     </div>
 </div>
-
-
-<!--Usuaris-->
-
+</div>
 @stop

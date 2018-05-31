@@ -1,3 +1,4 @@
+<?php $button = 'A-Z' ?>
 
 <nav class="navbar navbar-expand-lg navbar-light" id="colorNav">
     <img src="{{ asset('images/zergicon.png') }}" width="50px" height="50px">
@@ -13,7 +14,7 @@
                 <a class="nav-link" href="{{route('noticies')}}">Noticies<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('fanfictions')}}">Totes els Fanfictions</a>
+                <a class="nav-link" href="{{route('fanfictions', $button) }}">Totes els Fanfictions</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Categories</a>
@@ -36,7 +37,9 @@
 
                             Desconecta'm
                         </a>
-
+                         <a class="dropdown-item" href="{{ route('backend-user', Auth::user()->name)}}">
+                             Perfil
+                        </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>

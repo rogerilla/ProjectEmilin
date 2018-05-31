@@ -5,17 +5,29 @@ namespace App\Http\Controllers\backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Noticies;
-class NoticiesCRUDController extends Controller
-{
+use App\User;
+use Illuminate\Support\Facades\Auth;
+class NoticiesCRUDController extends Controller {
+
+    private $autor = [];
+
+    public function __construct() {
+        foreach (User::all() as $usuari) {
+            $this->autor[$usuari->id] = $usuari->name;
+        }
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         $noticies = Noticies::all();
-        //dd($categories);
+        foreach ($noticies as $noticia) {
+            //En cas de volguer més de una categoria buscar mes de 1 id que fagi
+            $noticia['nom_autor'] = $this->autor[$noticia->id_user];
+        }
         return view('web.backend.admin.noticies.index', compact('noticies'));
     }
 
@@ -24,9 +36,9 @@ class NoticiesCRUDController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create() {
+        return view('web.backend.admin.noticies.crearNoticia');
+        
     }
 
     /**
@@ -35,10 +47,25 @@ class NoticiesCRUDController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        
+        $validacio = $this->validate($request, [
+          'titol' => 'required|unique:noticies|max:255',
+           'noticia'=>'required|unique:noticies'
+        ]);
+        $idUsuari = Auth::id();
+        if ($validacio){
+        $noticies = noticies::create([
+            'titol' => $request->get('titol'),
+            'noticia' => $request->get('noticia'),
+            'id_user' => $idUsuari
+        ]);
+        }
+        $message = $noticies ? 'Noticia creada correctament!' : 'La noticia NO s`ha pogut afegir!';
+        return redirect()->route('noticies.index')->with('message', $message);
     }
+    
+    
 
     /**
      * Display the specified resource.
@@ -46,8 +73,7 @@ class NoticiesCRUDController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($id) {
         //
     }
 
@@ -57,8 +83,7 @@ class NoticiesCRUDController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         //
     }
 
@@ -69,8 +94,7 @@ class NoticiesCRUDController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
         //
     }
 
@@ -80,8 +104,8 @@ class NoticiesCRUDController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         //
     }
+
 }

@@ -7,7 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Histories;
 use App\Category;
 use App\User;
-class HistoriesCRUDController extends Controller
+use Illuminate\Support\Facades\Auth;
+class HistoriesUserController extends Controller
 {
    private $categories = [];
    private $autor = [];
@@ -21,7 +22,9 @@ class HistoriesCRUDController extends Controller
     }
     public function index()
     {
-        $histories = Histories::all();
+        $usuari = Auth::id();
+        $histories = Histories::where('usuari', $usuari)
+                ->get();
         foreach ($histories as $historia) {
             //En cas de volguer més de una categoria buscar mes de 1 id que fagi
             $historia['nom_categoria'] = $this->categories[$historia->id_categoria];
@@ -29,7 +32,7 @@ class HistoriesCRUDController extends Controller
         }
         
         //dd($categories);
-        return view('web.backend.admin.fanfics.index', compact('histories'));
+        return view('web.backend.user.fanfic.fanfiction', compact('histories'));
     }
 
     /**

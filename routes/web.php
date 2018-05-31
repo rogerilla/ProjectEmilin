@@ -15,9 +15,9 @@ Route::bind('category', function($category) {
 });
 Route::get('/', [
     'as' => 'noticies',
-    'uses' => 'NoticiesController@index', 'NoticiesController@fanficRandom']);
+    'uses' => 'NoticiesController@index', 'NoticiesController@fanfic_random']);
 
-Route::get('/fanfictions', [
+Route::get('/fanfictions/{button}', [
     'as' => 'fanfictions',
     'uses' => 'HistoriesController@index']);
 
@@ -25,13 +25,7 @@ Route::get('/fanfictions/{titol}', [
     'as' => 'fanfic-escollit',
     'uses' => 'HistoriesController@veure_fanfic']);
 
-Route::get('/ultims', [
-    'as' => 'fanfic-ultims',
-    'uses' => 'HistoriesController@ultims']);
 
-Route::get('/nous', [
-    'as' => 'fanfic-nous',
-    'uses' => 'HistoriesController@nous']);
 Auth::routes();
 
 //Route::get('/logout', 'Auth\LoginController@logout');
@@ -53,4 +47,13 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('admin/noticies', 'backend\NoticiesCRUDController');
     Route::resource('admin/user', 'UserController');
 });
+Route::get('user/{name}', [
+    'as' => 'backend-user',
+    'uses' => 'backend\UserbackendController@index']);
+Route::resource('user/{name}/fanfiction', 'backend\HistoriesUserController');
+//No se perque serveix
 
+Route::bind('category', function($category){
+
+    return App\Category::find($category);
+});

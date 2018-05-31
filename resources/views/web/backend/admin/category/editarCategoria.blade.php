@@ -12,6 +12,7 @@
                     @include('admin.partials.errors')
                     @endif
                     {!! Form::open(['route'=>'category.update'])!!}
+                    {!! Form::model($category, array('route'=> array('category.update', $category->id)))!!}
                 </div>
                 <div class="form-group">
                     <label for="name">Nom:</label>

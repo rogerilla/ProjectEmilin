@@ -8,5 +8,5 @@ class Category extends Model
 {
     protected $table = 'categories';
     protected $fillable = ['nom'];
-    public $timestramps = false;
+    public $timestramps = true;
 }

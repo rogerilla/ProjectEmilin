@@ -16,14 +16,30 @@ class HistoriesController extends Controller {
         }
     }
 
-    public function index() {
-        $histories = histories::orderBy('titol', 'ASC')->get();
-        foreach ($histories as $historia) {
-            //En cas de volguer més de una categoria buscar mes de 1 id que fagi
-            $historia['nom_categoria'] = $this->categories[$historia->id_categoria];
-        }
-        //dd($histories);
+    public function index($button) {
         
+        if ($button == 'A-Z') {
+            $histories = histories::orderBy('titol', 'ASC')->get();
+            foreach ($histories as $historia) {
+                //En cas de volguer més de una categoria buscar mes de 1 id que fagi
+                $historia['nom_categoria'] = $this->categories[$historia->id_categoria];
+            }
+        } else if ($button == 'ultims') {
+            $histories = histories::orderBy('id', 'DESC')->get();
+            foreach ($histories as $historia) {
+                //En cas de volguer més de una categoria buscar mes de 1 id que fagi
+                $historia['nom_categoria'] = $this->categories[$historia->id_categoria];
+            }
+        } else if ($button == 'primers') {
+            $histories = histories::orderBy('id', 'ASC')->get();
+            foreach ($histories as $historia) {
+                //En cas de volguer més de una categoria buscar mes de 1 id que fagi
+                $historia['nom_categoria'] = $this->categories[$historia->id_categoria];
+            }
+        }
+        
+        //dd($histories);
+
         return view('web.historia', compact('histories'));
     }
 
@@ -34,26 +50,27 @@ class HistoriesController extends Controller {
         $historia['nom_categoria'] = $this->categories[$historia->id_categoria];
         return view('web.mostrar_fanfic', compact('historia'));
     }
-    public function ultims(){
+
+    public function ultims() {
         $histories = histories::orderBy('id', 'DESC')->get();
         foreach ($histories as $historia) {
             //En cas de volguer més de una categoria buscar mes de 1 id que fagi
             $historia['nom_categoria'] = $this->categories[$historia->id_categoria];
         }
         //dd($histories);
-        
+
         return view('web.historia', compact('histories'));
     }
-    public function nous(){
+
+    public function nous() {
         $histories = histories::orderBy('id', 'ASC')->get();
         foreach ($histories as $historia) {
             //En cas de volguer més de una categoria buscar mes de 1 id que fagi
             $historia['nom_categoria'] = $this->categories[$historia->id_categoria];
         }
         //dd($histories);
-        
+
         return view('web.historia', compact('histories'));
     }
-
 
 }

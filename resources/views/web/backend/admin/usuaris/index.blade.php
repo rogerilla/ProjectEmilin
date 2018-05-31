@@ -36,7 +36,7 @@
     });
     </script>
         <!-- /#sidebar-wrapper -->
-        
+    </div>    
 <!--Cateogries-->
 <div class='col-lg-8 container text-center'>
     <div class="page-header ">
