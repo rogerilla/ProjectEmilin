@@ -22,7 +22,7 @@
                     @foreach ($last_histories as $histories)
                     <div class=" border-bottom ">
                         <h3>{{$histories->titol}}</h3>
-                        <b>Autor: {{$histories->usuari}}</b>
+                        <b>Autor: {{$histories->nom_autor}}</b>
                         <p class="text-justify">Resum: {{$histories->resum}}</p>
                     </div>
                     @endforeach
@@ -40,7 +40,7 @@
                     <h3>
                         <a class="" href="{{route('fanfic-escollit', $historia_rand->titol)}}">{{$historia_rand->titol}}</a>
                     </h3>
-                    <b>Autor: {{$historia_rand->usuari}}</b>
+                    <b>Autor: {{$historia_rand->nom_autor}}</b>
                     <p class="text-justify">Resum: {{$historia_rand->resum}}</p>
                 </div>
             </div>

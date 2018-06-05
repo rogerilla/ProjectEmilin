@@ -8,12 +8,14 @@ use App\Histories;
 use App\User;
 
 class NoticiesController extends Controller {
-
+    private $autor = [];
     private $user = [];
     public function __construct() {
-        foreach (User::all() as $administrador) {
-            $this->user[$administrador->id] = $administrador->name;
+        foreach (User::all() as $usuari) {
+            $this->user[$usuari->id] = $usuari->name;
+            $this->autor[$usuari->id] = $usuari->name;
         }
+        
     }
 
     public function index() {
@@ -28,11 +30,14 @@ class NoticiesController extends Controller {
         //dd($noticies);
         $historia_rand = Histories::inRandomOrder()
                 ->first();
-        
+          $historia_rand['nom_autor'] = $this->autor[$historia_rand->usuari];
             
         $last_histories = Histories::orderBy('id', 'DESC')
                 ->limit(3)
                 ->get();
+        foreach ($last_histories as $historia) {
+          $historia['nom_autor'] = $this->autor[$historia->usuari];
+       }
         
         return view('web.index', compact('noticies'), compact('historia_rand', 'last_histories'));
     }

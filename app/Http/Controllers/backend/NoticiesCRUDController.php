@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Noticies;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+
 class NoticiesCRUDController extends Controller {
 
     private $autor = [];
@@ -38,7 +39,6 @@ class NoticiesCRUDController extends Controller {
      */
     public function create() {
         return view('web.backend.admin.noticies.crearNoticia');
-        
     }
 
     /**
@@ -48,24 +48,22 @@ class NoticiesCRUDController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        
+
         $validacio = $this->validate($request, [
-          'titol' => 'required|unique:noticies|max:255',
-           'noticia'=>'required|unique:noticies'
+            'titol' => 'required|unique:noticies|max:255',
+            'noticia' => 'required|unique:noticies'
         ]);
         $idUsuari = Auth::id();
-        if ($validacio){
-        $noticies = noticies::create([
-            'titol' => $request->get('titol'),
-            'noticia' => $request->get('noticia'),
-            'id_user' => $idUsuari
-        ]);
+        if ($validacio) {
+            $noticies = noticies::create([
+                        'titol' => $request->get('titol'),
+                        'noticia' => $request->get('noticia'),
+                        'id_user' => $idUsuari
+            ]);
         }
         $message = $noticies ? 'Noticia creada correctament!' : 'La noticia NO s`ha pogut afegir!';
         return redirect()->route('noticies.index')->with('message', $message);
     }
-    
-    
 
     /**
      * Display the specified resource.
@@ -83,8 +81,8 @@ class NoticiesCRUDController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) {
-        //
+    public function edit($noticia) {
+        return view('web.backend.admin.noticies.editarNoticia', compact('noticia'));
     }
 
     /**
@@ -94,8 +92,15 @@ class NoticiesCRUDController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) {
-        //
+    public function update(Request $request, Noticies $noticia) {
+        $noticia->fill($request->all());
+        $noticia->titol = $request->get('titol');
+        $noticia->noticia = $request->get('noticia');
+
+        $updated = $noticia->save();
+
+        $message = $updated ? 'Noticia actualitzada correctament!' : 'La Noticia NO s´ha pogut actualitzar!';
+        return redirect()->route('noticies.index')->with('message', $message);
     }
 
     /**
@@ -104,8 +109,11 @@ class NoticiesCRUDController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) {
-        //
-    }
+    public function destroy($noticia) {
+       $deleted = Noticies::destroy($noticia);
+//        $deleted = $historia->delete();
+        $message = $deleted ? 'Noticia eliminada correctament!' : 'La noticia NO s´ha pogut eliminar!';
+        return redirect()->route('noticies.index')->with('message', $message);
+        }
 
 }

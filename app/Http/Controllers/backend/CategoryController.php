@@ -75,8 +75,14 @@ class CategoryController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) {
-        //
+    public function update(Request $request,Category $category) {
+        $category->fill($request->all());
+        $category->nom = $request->get('nom');
+        
+        $updated = $category->save();
+        
+        $message = $updated ? 'Categoria actualitzada correctament!' : 'La Categoria NO s´ha pogut actualitzar!';
+        return redirect()->route('category.index')->with('message', $message);
     }
 
     /**

@@ -67,9 +67,15 @@
                         <td>{{$noticia->titol}}</td>
                         <td>{{$noticia->noticia}}</td>
                         <td>{{$noticia->nom_autor}}</td>
-                        
-                        <td><button type="button" class="btn btn-warning"><i class ='fa fa-pencil-square'></i></button></td>
-                        <td><button type="button" class="btn btn-danger">X</button></td>
+       
+                        <td><a href="{{route('edit-noticia',$noticia->id)}}"> <button type="button" class="btn btn-warning"><i class ='fa fa-pencil-square'></i></button></a></td>
+
+                        <td>{!! Form::open(['route' => ['noticies.destroy', $noticia]]) !!}
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button onClick="return confirm('Eliminar registre?')" class="btn btn-danger">
+                            <i class="fa fa-trash-o"></i>
+                        </button>
+                        {!! Form::close() !!}</td>
                     </tr>
                     @endforeach
             </div>

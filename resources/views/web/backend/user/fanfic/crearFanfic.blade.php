@@ -1,40 +1,70 @@
 @extends ('web.template')
 @section ('content')
-<div class="footerabaix">
-<!--Menu del costat-->
-<div id="wrapper">
+<div class='container '>
+    <div class="page-header text-center">
+        {!! Form::open(['route'=>['crear-historia', Auth::user()->name]]) !!}
+        <h1>
+            Noticies <small>Crear noticia</small>
+        </h1>
 
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <li class="sidebar-brand">
-                <a href="#">
-                    Menu d'admin
-                </a>
-            </li>
-            <li>
-                <a href="{{route('category.index')}}"class='bg-secondary'>Usuaris</a>
-            </li>
-            <li>
-                <a href="{{route('fanfic.index', Auth::user()->name)}}">Fanfictions</a>
-            </li>
-            <li>
-                <a href="{{route('fanfic.create', Auth::user()->name)}}">Creador de Fanfictions</a>
-            </li>
-        </ul>
+        <div class="">
+            <div class="page">
+                @if (count($errors) > 0)
+                @include('web.backend.admin.errors')
+                @endif
+            </div>
+            <div class="form-group">
+                <label for="titol">Titol:</label>
+                {!! 
+                Form::text(
+                'titol', 
+                null, 
+                array(
+                'class'=>'form-control',
+                'placeholder' => 'Introdueix un el titol de la noticia que vulguis',
+                'autofocus' => 'autofocus'
+                )
+                ) 
+                !!}
+            </div>
+            <div class="form-group">
+                <label for="Resum">Crea el resum</label>
+                {!! 
+                Form::textarea(
+                'resum', 
+                null, 
+                array(
+                'class'=>'form-control'
+                )
+                ) 
+                !!}
+            </div>
+            <div class="form-group">
+                <label for="Resum">Contingut</label>
+                {!! 
+                Form::textarea(
+                'contingut', 
+                null, 
+                array(
+                'class'=>'form-control'
+                )
+                ) 
+                !!}
+            </div>
+
+            Selecciona les categories que vols implementar a les histories
+            <div class='d-flex wrap'>
+                @foreach ($categories as $categoria) 
+                {{ Form::checkbox('categoria[]', $categoria->id, null, ['class' => 'field']) }}{{$categoria->nom}}
+                @endforeach
+        </div>
+        </div>
+        <div class="form-group">
+            {!! Form::submit('Desar', array('class'=>'btn btn-primary')) !!}
+            <a href="{{ route('noticies.index') }}" class="btn btn-danger">Cancel·lar</a>
+            {!! Form::close() !!}
+        </div>
     </div>
-    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Panell de control</a>
-    <script>
-        $("#menu-toggle").click(function (e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-    </script>
 </div>
-<div class="container">
-    <div class="text-center">
-        <h1>Benvingut/da al teu perfil personal {{Auth::user()->name}} clica el panell de control per començar</h1>
-    </div>
-</div>
-</div>
+
 @stop

@@ -64,7 +64,7 @@
                         <td>{{$historia->resum}}</td>
                         <td>Editar</td>
                         
-                        <td>{!! Form::open(['route' => ['fanfics.destroy', $historia->id]]) !!}
+                        <td>{!! Form::open(['route' => ['fanfiction.destroy', $historia->id,  Auth::user()->name]]) !!}
                         <input type="hidden" name="_method" value="DELETE">
                         <button onClick="return confirm('Eliminar el fanfic?')" class="btn btn-danger">
                             <i class="fa fa-trash-o"></i>

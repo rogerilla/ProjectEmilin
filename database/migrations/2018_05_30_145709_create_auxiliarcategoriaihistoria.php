@@ -15,9 +15,9 @@ class CreateAuxiliarcategoriaihistoria extends Migration
     {
        Schema::create('categoriahistoria', function (Blueprint $table) {
             $table->integer('id_historia')->unsigned();
-            $table->foreign('id_historia')->references('id')->on('histories');
+            $table->foreign('id_historia')->references('id')->on('histories')->onDelete('cascade');
             $table->integer('id_categories')->unsigned();
-            $table->foreign('id_categories')->references('id')->on('categories');
+            $table->foreign('id_categories')->references('id')->on('categories')->onDelete('cascade');
             $table->primary(['id_historia','id_categories']);
             $table->timestamps();
         });

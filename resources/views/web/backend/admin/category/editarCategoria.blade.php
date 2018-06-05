@@ -3,23 +3,25 @@
 <div class='container text-center'>
     <div class="page-header">
         <h1>
-            CATEGORIES <small>Afegir Categoria</small>
+            CATEGORIES <small>Editar Categoria</small>
         </h1>
         <div class="row">
             <div class="col-md-offset-3 col-md-6">
+                
+                
                 <div class="page">
                     @if (count($errors) > 0)
                     @include('admin.partials.errors')
                     @endif
-                    {!! Form::open(['route'=>'category.update'])!!}
-                    {!! Form::model($category, array('route'=> array('category.update', $category->id)))!!}
+                    {!! Form::open(['route' => ['update-category', $category]])!!}
+                    
                 </div>
                 <div class="form-group">
-                    <label for="name">Nom:</label>
+                    <label for="nom">Nom:</label>
                     {!! 
                     Form::text(
-                    'name', 
-                    null, 
+                    'nom', 
+                    $category->nom, 
                     array(
                     'class'=>'form-control',
                     'placeholder' => 'Introdueix un nom...',
@@ -37,3 +39,4 @@
         </div>
     </div>
 
+@stop

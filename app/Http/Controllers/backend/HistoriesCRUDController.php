@@ -24,7 +24,6 @@ class HistoriesCRUDController extends Controller
         $histories = Histories::all();
         foreach ($histories as $historia) {
             //En cas de volguer més de una categoria buscar mes de 1 id que fagi
-            $historia['nom_categoria'] = $this->categories[$historia->id_categoria];
             $historia['nom_autor'] = $this->autor[$historia->usuari];
         }
         
@@ -50,7 +49,7 @@ class HistoriesCRUDController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
     }
 
     /**

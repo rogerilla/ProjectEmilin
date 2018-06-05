@@ -18,12 +18,10 @@ class CreateHistoriesTable extends Migration
             $table->integer('usuari')->unsigned();
             $table->foreign('usuari')->references('id')->on('users')->onDelete('cascade');
             $table->string('titol',100)->unique();
-            $table->integer('id_categoria')->unsigned();
-            $table->foreign('id_categoria')->references('id')->on('categories');
             $table->text('resum');
             $table->text('contingut');
             $table->timestamps();
-            $table->boolean('finalitzacio');
+            $table->boolean('finalitzacio')->default(0);
             $table->integer('nVots')->default(0);
         });
     }
