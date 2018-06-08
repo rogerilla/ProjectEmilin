@@ -13,23 +13,15 @@ use Illuminate\Support\Facades\Auth;
 class HistoriesUserController extends Controller {
 
 //   private $categories = [];
-  private $autor = [];
     public function __construct() {
 //        foreach (Category::all() as $categoria) {
 //            $this->categories[$categoria->id] = $categoria->nom;
 //        }
-        foreach (User::all() as $usuari) {
-            $this->autor[$usuari->id] = $usuari->name;
-        }
     }
     public function index() {
         $usuari = Auth::id();
         $histories = Histories::where('usuari', $usuari)
                 ->get();
-        foreach ($histories as $historia) {
-          $historia['nom_autor'] = $this->autor[$historia->usuari];
-       }
-        //dd($categories);
         return view('web.backend.user.fanfic.fanfiction', compact('histories'));
     }
 
@@ -73,7 +65,6 @@ class HistoriesUserController extends Controller {
             }
         }
 
-//        $message = $histories ? 'Noticia creada correctament!' : 'La noticia NO s`ha pogut afegir!';
        return redirect()->route('fanfiction.index', Auth::User()->name);
     }
 
@@ -93,8 +84,8 @@ class HistoriesUserController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) {
-        //
+    public function edit(Histories $historia) {
+        return view('web.backend.user.fanfic.editarFanfic', compact('historia'));
     }
 
     /**
@@ -104,8 +95,14 @@ class HistoriesUserController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) {
-        //
+    public function update(Request $request, Histories $historia) {
+        
+        $historia->fill($request->all());
+        $historia->titol = $request->get('titol');
+        $historia->resum = $request->get('resum');
+        $historia->contingut = $request->get('contingut');
+        
+        $updated = $historia->save();
     }
 
     /**

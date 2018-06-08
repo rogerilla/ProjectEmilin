@@ -16,9 +16,10 @@
         </h3>
         <p>Autor: {{$historia->nom_autor}}</p>
         <p>Categories: </p>
-        @foreach ($categories as $categoria)
-         {{$categoria->nom_categoria}},
-        @endforeach
+        <div>{{$categories_tot[$historia->id]}} </div>
+        @if ($categories_tot == null)
+        <p>null</p>
+        @endif
         <p>Resum:{{$historia->resum}}</p>
     </div>
     @endforeach

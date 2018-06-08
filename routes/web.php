@@ -44,32 +44,36 @@ Route::post('admin/login', 'auth\LoginadminController@login');
 Route::group(['middleware' => 'admin'], function () {
     Route::resource('admin/category', 'backend\CategoryController');
     Route::post('admin/category/{category}', [
-    'as' => 'update-category',
-    'uses' => 'backend\CategoryController@update']);
+        'as' => 'update-category',
+        'uses' => 'backend\CategoryController@update']);
     Route::resource('admin/fanfics', 'backend\HistoriesCRUDController');
     Route::resource('admin/noticies', 'backend\NoticiesCRUDController');
     Route::post('admin/noticies/{noticia}', [
-    'as' => 'update-noticia',
-    'uses' => 'backend\NoticiesCRUDController@update']);
+        'as' => 'update-noticia',
+        'uses' => 'backend\NoticiesCRUDController@update']);
     Route::get('admin/noticies/{noticia}/edit', [
-    'as' => 'edit-noticia',
-    'uses' => 'backend\NoticiesCRUDController@edit']);
+        'as' => 'edit-noticia',
+        'uses' => 'backend\NoticiesCRUDController@edit']);
     Route::resource('admin/user', 'UserController');
-    
 });
 Route::get('user/{name}', [
     'as' => 'backend-user',
     'uses' => 'backend\UserbackendController@index']);
 Route::resource('user/{name}/fanfiction', 'backend\HistoriesUserController');
 
-//ruta d'store per crear les histories
+//Rutes per CRUD histories
 Route::post('user/{name}/fanfiction/create', [
     'as' => 'crear-historia',
     'uses' => 'backend\HistoriesUserController@store']);
+//Route::get('user/{name}/fanfiction/{fanfiction}/edit', [
+//    'as' => 'edit-historia',
+//    'uses' => 'backend\HistoriesUserController@edit']);
 
-//No se perque serveix
-
-Route::bind('category', function($category){
+Route::post('user/{name}/fanfiction/{fanfiction}', [
+    'as' => 'update-historia',
+    'uses' => 'backend\HistoriesUserController@update']);
+//FInal rutes per CRUD histories
+Route::bind('category', function($category) {
 
     return App\Category::find($category);
 });
